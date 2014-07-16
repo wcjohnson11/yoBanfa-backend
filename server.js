@@ -1,5 +1,8 @@
 //Main Server File
 
+// Set default node env to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 //Require dependencies
 var express = require('express');
 var mongoose = require('mongoose');

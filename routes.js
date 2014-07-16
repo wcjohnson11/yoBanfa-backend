@@ -2,7 +2,7 @@
 module.exports = function(app) {
 
   //routes live here
-  app.use('/api/cards', require('./api/cards/index.js'));
+  app.use('/api/cards', require('./api/cards/card.routes.js'));
   app.use('/api/games', require('./api/games/game.routes.js'));
   app.use('/api/users', require('./api/users/user.routes.js'));
 
