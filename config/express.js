@@ -19,7 +19,10 @@ module.exports = function(app) {
 
   // Connect middleware
   app.use(compression());
-  app.use(bodyParser());
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({
+	extended: true
+  }));
   app.use(methodOverride());
   app.use(cookieParser());
   app.use(passport.initialize());
@@ -30,6 +33,8 @@ module.exports = function(app) {
   // Persist sessions with mongoStore
   app.use(session({
 	secret: config.secrets.session,
+	resave: true,
+	saveUninitialized: true,
 	store: new mongoStore({
 		url: config.mongo.uri,
 		collection: 'sessions'
